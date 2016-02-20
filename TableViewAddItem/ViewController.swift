@@ -84,8 +84,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func addAction(sender: AnyObject) {
         
         if let newItem = self.addField {
-        items.append(newItem.text!)
-        self.myTableView.reloadData()
+            if newItem.text!.characters.count > 0{
+                items.append(newItem.text!)
+                self.myTableView.reloadData()
+            }
         }
         
     
