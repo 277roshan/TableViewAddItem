@@ -8,18 +8,18 @@
 
 import UIKit
 
+var items:[String] = ["We","Heart","Swift","asdfasf","We","Heart","Swift","asdfasf"]
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    var items:[String] = ["We","Heart","Swift","asdfasf","We","Heart","Swift","asdfasf"]
+    
     
     @IBOutlet var myTableView: UITableView!
     
     @IBOutlet weak var Edit: UIBarButtonItem!
     
    
-    @IBOutlet weak var Add: UIBarButtonItem!
-    
-    @IBOutlet weak var addField: UITextField!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -81,16 +81,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
    
     
-    @IBAction func addAction(sender: AnyObject) {
-        
-        if let newItem = self.addField {
-            if newItem.text!.characters.count > 0{
-                items.append(newItem.text!)
-                self.myTableView.reloadData()
-            }
-        }
-        
-    
+    override func viewWillAppear(animated: Bool) {
+        myTableView.reloadData()
     }
 
 

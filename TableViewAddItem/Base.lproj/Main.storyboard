@@ -4,7 +4,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
-        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -48,30 +47,14 @@
                                 <action selector="editAction:" destination="BYZ-38-t0r" id="sQ2-Yq-jds"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem title="Add" id="EQa-5R-B5R">
-                                <connections>
-                                    <action selector="addAction:" destination="BYZ-38-t0r" id="qE0-PY-sJj"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem style="plain" id="Q1N-jP-IxE">
-                                <textField key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="0UY-r1-dVS">
-                                    <rect key="frame" x="408" y="7" width="133" height="30"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <action selector="addAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="sQU-gL-Zjm"/>
-                                        <outlet property="delegate" destination="BYZ-38-t0r" id="dNm-mP-vte"/>
-                                    </connections>
-                                </textField>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="EQa-5R-B5R">
+                            <connections>
+                                <segue destination="TYN-dT-JDS" kind="show" id="86u-7I-KlJ"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="Add" destination="EQa-5R-B5R" id="6W5-54-aKQ"/>
                         <outlet property="Edit" destination="eX4-zC-gAT" id="JTb-KU-Eds"/>
-                        <outlet property="addField" destination="0UY-r1-dVS" id="g6Q-08-V8j"/>
                         <outlet property="myTableView" destination="dYN-o9-XaB" id="rAQ-M5-N3c"/>
                     </connections>
                 </viewController>
@@ -79,20 +62,43 @@
             </objects>
             <point key="canvasLocation" x="3493" y="337"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="hrW-nT-sAM">
+        <!--Table Detail-->
+        <scene sceneID="PJU-mr-REk">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CST-yP-0wE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="w5R-jZ-bAW">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uTF-2J-Hnq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController id="TYN-dT-JDS" customClass="TableDetail" customModule="TableViewAddItem" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="YJT-fI-8pL"/>
+                        <viewControllerLayoutGuide type="bottom" id="eaY-Jj-8BL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="AhH-II-cFB">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkq-4z-a7n">
+                                <rect key="frame" x="0.0" y="72" width="600" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="TYN-dT-JDS" id="7Qq-bx-hBD"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eeA-nz-YM5">
+                                <rect key="frame" x="18" y="110" width="37" height="30"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="DoneAction:" destination="TYN-dT-JDS" eventType="touchUpInside" id="LjR-w1-qif"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="myTextField" destination="zkq-4z-a7n" id="2cg-9l-c4I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VR2-2Y-yPw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="245" y="337"/>
+            <point key="canvasLocation" x="4187" y="337"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YeJ-y7-L1g">
